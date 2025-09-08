@@ -9,7 +9,7 @@
     <version>3.9.0</version>
 
     <name>ruoyi</name>
-    <url>http://www.ruoyi.vip</url>
+    <url>https://github.com/moonarce/mycode.git</url>
     <description>若依管理系统</description>
     
     <properties>

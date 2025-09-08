@@ -1,21 +1,21 @@
 @echo off
 
-rem jarÆ½¼¶Ä¿Â¼
+rem jarå¹³å°ç›®å½•
 set AppName=ruoyi-admin.jar
 
-rem JVM²ÎÊı
+rem JVMå‚æ•°
 set JVM_OPTS="-Dname=%AppName%  -Duser.timezone=Asia/Shanghai -Xms512m -Xmx1024m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDateStamps  -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC"
 
 
 ECHO.
-	ECHO.  [1] Æô¶¯%AppName%
-	ECHO.  [2] ¹Ø±Õ%AppName%
-	ECHO.  [3] ÖØÆô%AppName%
-	ECHO.  [4] Æô¶¯×´Ì¬ %AppName%
-	ECHO.  [5] ÍË ³ö
+	ECHO.  [1] å¯åŠ¨%AppName%
+	ECHO.  [2] å…³é—­%AppName%
+	ECHO.  [3] é‡å¯%AppName%
+	ECHO.  [4] è¿è¡ŒçŠ¶æ€ %AppName%
+	ECHO.  [5] é€€ å‡º
 ECHO.
 
-ECHO.ÇëÊäÈëÑ¡ÔñÏîÄ¿µÄĞòºÅ:
+ECHO.è¯·è¾“å…¥é€‰æ‹©çš„åºå·å¹¶å›è½¦:
 set /p ID=
 	IF "%id%"=="1" GOTO start
 	IF "%id%"=="2" GOTO stop
@@ -35,11 +35,11 @@ PAUSE
 
 start javaw %JVM_OPTS% -jar %AppName%
 
-echo  starting¡­¡­
+echo  startingå®Œæˆ
 echo  Start %AppName% success...
 goto:eof
 
-rem º¯ÊıstopÍ¨¹ıjpsÃüÁî²éÕÒpid²¢½áÊø½ø³Ì
+rem å‡½æ•°stopé€šè¿‡jpså‘½ä»¤æŸ¥æ‰¾pidç„¶åæ€æ‰è¿›ç¨‹
 :stop
 	for /f "usebackq tokens=1-2" %%a in (`jps -l ^| findstr %AppName%`) do (
 		set pid=%%a
@@ -48,7 +48,7 @@ rem º¯ÊıstopÍ¨¹ıjpsÃüÁî²éÕÒpid²¢½áÊø½ø³Ì
 	if not defined pid (echo process %AppName% does not exists) else (
 		echo prepare to kill %image_name%
 		echo start kill %pid% ...
-		rem ¸ù¾İ½ø³ÌID£¬kill½ø³Ì
+		rem æ ¹æ®è¿›ç¨‹IDæ€æ­»è¿›ç¨‹
 		taskkill /f /pid %pid%
 	)
 goto:eof
